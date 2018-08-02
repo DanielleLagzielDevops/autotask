@@ -1,5 +1,5 @@
 pipeline {
-    def app="hi"
+    //def app
     //agent { dockerfile true } 
     agent any
     stages {

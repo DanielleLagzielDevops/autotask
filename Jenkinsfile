@@ -1,5 +1,5 @@
 pipeline {
-    
+    def app
     //agent { dockerfile true } 
     agent any
     stages {
@@ -7,6 +7,16 @@ pipeline {
             steps {
                 checkout scm
             }
+        }
+        //new
+        stage('Build dockerfile') {
+            
+            app = docker.build("daniellelagziel/autotask")
+        }
+         stage('Test') {
+             app.inside {
+                sh 'echo "Test pass"'
+             }
         }
     }
 }

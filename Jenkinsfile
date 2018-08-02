@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+	agent  { dockerfile true }
     def app
     stages {
 	    stage('Checkout') {
@@ -14,4 +14,5 @@ pipeline {
 		    }
 	    }
      }
+	
 }

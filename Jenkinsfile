@@ -3,6 +3,6 @@ node {
 
     stage('Build image') {
 
-        app = docker.build("daniellelagziel/AutoTask")
+        app = docker.build("daniellelagziel/autotask")
     }
 }

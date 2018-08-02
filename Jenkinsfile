@@ -2,9 +2,9 @@ pipeline {
     
     agent { dockerfile true } 
     stages {
-        stage('Build image') {
+        stage('Checkout') {
             steps {
-                docker.build("daniellelagziel/autotask")
+                checkout scm
             }
         }
     }

@@ -1,5 +1,5 @@
-node {
-    def app
+pipeline {
+    agent any
     stages {
 	    stage('Checkout') {
 		steps {

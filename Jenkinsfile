@@ -1,25 +1,27 @@
 pipeline {
-    //def app
-    agent { dockerfile true } 
-    //agent any
-    stages {
-        stage('Checkout') {
-            steps {
-                echo 'Test'
-                //checkout scm
-            }
-        }
+  agent none
+  stages {
+    stage('Docker Build') {
+      agent any
+      steps {
+        sh 'docker build -t dani .'
+      }
     }
+  }
 }
-        //new
-        //stage('Build dockerfile') {
-            
-        //    docker.build("daniellelagziel/autotask")
+
+
+
+//pipeline {
+  //  //def app
+   // agent { dockerfile true } 
+    ////agent any
+    //stages {
+      //  stage('Checkout') {
+        //    steps {
+         //       echo 'Test'
+           //     //checkout scm
+            //}
         //}
-        // stage('Test') {
-         //    app.inside {
-          //      sh 'echo "Test pass"'
-           //  }
-        //}
-   // }
+    //}
 //}

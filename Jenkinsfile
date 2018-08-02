@@ -8,8 +8,9 @@ node {
 	}
     }
     stage('Build image') {
-
-        app = docker.build("daniellelagziel/autotask")
+	    steps {
+        	app = docker.build("daniellelagziel/autotask")
+	    }
     }
  }
 }

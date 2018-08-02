@@ -1,5 +1,5 @@
 pipeline {
-    //def app
+    def app="hi"
     //agent { dockerfile true } 
     agent any
     stages {
@@ -11,7 +11,7 @@ pipeline {
         //new
         stage('Build dockerfile') {
             
-            def app = docker.build("daniellelagziel/autotask")
+            app = docker.build("daniellelagziel/autotask")
         }
          stage('Test') {
              app.inside {

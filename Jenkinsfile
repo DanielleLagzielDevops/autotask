@@ -1,12 +1,10 @@
 pipeline {
-	agent  { dockerfile true }
-    def app
-	stages {
-	    stage('Build image') {
-		steps {
-
-			app = docker.build("daniellelagziel/autotask")
-		}
-	     }	
-	}
+    agent { dockerfile true } 
+    stages {
+        stage('Build image') {
+            steps {
+                app = docker.build("daniellelagziel/autotask")
+            }
+        }
+    }
 }

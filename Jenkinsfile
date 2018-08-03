@@ -58,7 +58,7 @@ pipeline {
                             sh 'mvn deploy:deploy-file' +
              ' -DgeneratePom=false -DrepositoryId=nexus' +
              ' -Durl=http://localhost:8081/repository/maven-releases/' +
-             ' -Dpackaging=war -DgroupId=com.automateit -Dversion=1.9' +
+             ' -Dpackaging=war -DgroupId=com.automateit -Dversion=1.10' +
             ' -DpomFile=pom.xml -Dfile=web/target/time-tracker-web-0.3.1.war'
  
             }
@@ -71,20 +71,15 @@ pipeline {
             }
         }
         
-  //     stage('Docker Build') {
-   //       steps {
-    //         docker build -t autoimage .
-   //          docker login localhost:8123
-   //          docker push localhost:8123/autoimage
-//      }
-  //     }
+       stage('Docker Build') {
+          steps {
+             sh "docker build -t autoimage ."
+             sh "docker login -u daniel -p admin123 localhost:8123"
+            sh "docker push localhost:8123/autoimage"
+      }
+      }
         
-       stage('Push to  Nexus Registry'){
-            steps{
-    withCredentials([usernamePassword(credentialsId: 'localhost:8123', usernameVariable: "daniel", passwordVariable: "admin123")]) {
-        pushToImage(autoimage, ver1, daniel, admin123)
-    }
-    }
+
 }
         
     }

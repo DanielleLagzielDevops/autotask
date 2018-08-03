@@ -54,12 +54,12 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                echo 'deploy war to artifactory'
-                sh 'mvn deploy:deploy-file' +
- ' -DgeneratePom=false -DrepositoryId=nexus' +
- ' -Durl=http://localhost:8081/repository/maven-releases/' +
- ' -Dpackaging=war -DgroupId=com.automateit -Dversion=1.0' +
-' -DpomFile=pom.xml -Dfile=web/target/time-tracker-web-0.3.1.war'
+                            echo 'deploy war to artifactory'
+                            sh 'mvn deploy:deploy-file' +
+             ' -DgeneratePom=false -DrepositoryId=nexus' +
+             ' -Durl=http://localhost:8081/repository/maven-releases/' +
+             ' -Dpackaging=war -DgroupId=com.automateit -Dversion=1.0' +
+            ' -DpomFile=pom.xml -Dfile=web/target/time-tracker-web-0.3.1.war'
  
             }
         }
@@ -70,6 +70,7 @@ pipeline {
             sh 'docker login localhost:8123'
             sh 'docker push localhost:8123/autoImage'
       }
+       }
         
     }
 

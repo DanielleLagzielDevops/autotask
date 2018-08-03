@@ -66,9 +66,9 @@ pipeline {
         
        stage('Docker Build') {
           steps {
-            sh 'docker build -t autoImage .'
+            sh 'docker build -t autoimage .'
             sh 'docker login localhost:8123'
-            sh 'docker push localhost:8123/dockerlocal/'
+            sh 'docker push localhost:8123/autoimage'
       }
        }
         

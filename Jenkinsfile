@@ -78,10 +78,7 @@ pipeline {
             sh "docker push localhost:8123/autoimage"
       }
       }
-        
-
-}
-        
+                
     }
 
     post {

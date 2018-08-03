@@ -58,7 +58,7 @@ pipeline {
                             sh 'mvn deploy:deploy-file' +
              ' -DgeneratePom=false -DrepositoryId=nexus' +
              ' -Durl=http://localhost:8081/repository/maven-releases/' +
-             ' -Dpackaging=war -DgroupId=com.automateit -Dversion=1.1' +
+             ' -Dpackaging=war -DgroupId=com.automateit -Dversion=1.2' +
             ' -DpomFile=pom.xml -Dfile=web/target/time-tracker-web-0.3.1.war'
  
             }
@@ -68,7 +68,7 @@ pipeline {
           steps {
             sh 'docker build -t autoImage .'
             sh 'docker login localhost:8123'
-            sh 'docker push localhost:8123/autoImage'
+            sh 'docker push localhost:8123/dockerlocal/'
       }
        }
         
